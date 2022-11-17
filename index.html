@@ -1,0 +1,445 @@
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/style.css" id='stylesheet'>
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" integrity="sha512-RliK2gk03WxUELn57ddjWLhEfhUiOZ85VvWLImFy8A7FOPMkF4Z9YGQ3VKX5jpwkEerAL6I0nC+JNeCPrxWBTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>IT Jeopardy 2022</title>
+  </head>
+  <body id="mainBody">
+    <div id="context-menu" class="context-menu">
+      <div class="top-context-menu" id="edit-context-menu">Edit Player Name</div>
+      <div id="reset-player-name">Reset Player Name</div>
+      <div id="cancel-context-menu">Cancel</div> 
+    </div>
+    <div id="popup"></div>
+    <div class="settings">
+      <div class="bar-menu">
+        <svg class="icon" id="menu-button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="48px" height="48px"><g id="surface24793741"><path style="stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 2 5 L 2 7 L 22 7 L 22 5 Z M 2 11 L 2 13 L 22 13 L 22 11 Z M 2 17 L 2 19 L 22 19 L 22 17 Z M 2 17 "/><title>Settings Menu</title></g></svg>
+        <svg class="icon" id="mute-button" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M30.1 40.85q-.8.25-1.45-.25-.65-.5-.65-1.35 0-.4.225-.725.225-.325.625-.425 4.55-1.6 7.35-5.45t2.8-8.7q0-4.85-2.8-8.725T28.85 9.8q-.4-.1-.625-.45Q28 9 28 8.6q0-.85.675-1.325T30.1 7.05q5.35 1.9 8.625 6.525Q42 18.2 42 23.95t-3.275 10.375Q35.45 38.95 30.1 40.85ZM7.5 30q-.65 0-1.075-.425Q6 29.15 6 28.5v-9q0-.65.425-1.075Q6.85 18 7.5 18H14l7.45-7.45q.7-.7 1.625-.325Q24 10.6 24 11.6v24.8q0 1-.925 1.375t-1.625-.325L14 30ZM27 32.4V15.55q2.7.85 4.35 3.2Q33 21.1 33 24q0 2.95-1.65 5.25T27 32.4Zm-6-16.8L15.35 21H9v6h6.35L21 32.45ZM16.3 24Z"/><title>Mute Audio</title></svg>
+        <svg class="icon" id="unmute-button" fill="#ffffff" style="display:none;" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="m39.55 44.1-5.5-5.5q-1 .7-2.075 1.275-1.075.575-2.225.975-.8.25-1.45-.25-.65-.5-.65-1.35 0-.4.225-.725.225-.325.625-.425.9-.3 1.775-.7.875-.4 1.625-.95l-8.25-8.3v8.25q0 1-.925 1.375T21.1 37.45L13.65 30h-6.5q-.65 0-1.075-.425-.425-.425-.425-1.075v-9q0-.65.425-1.075Q6.5 18 7.15 18h6.3L3.5 8.05q-.45-.45-.425-1.075Q3.1 6.35 3.55 5.9 4 5.45 4.6 5.45q.6 0 1.05.45l36.1 36.05q.45.45.45 1.075t-.45 1.075q-.45.45-1.1.45-.65 0-1.1-.45Zm-9.8-37.05q5.35 1.9 8.625 6.525Q41.65 18.2 41.65 23.95q0 2.55-.7 5t-2.1 4.65l-2.15-2.15q1-1.7 1.475-3.6.475-1.9.475-3.9 0-4.95-2.775-8.9T28.5 9.75q-.4-.1-.625-.425Q27.65 9 27.65 8.6q0-.85.675-1.325t1.425-.225ZM18.6 23.15Zm13.55 3.75-4.5-4.5v-6.5Q30 17 31.325 19.2q1.325 2.2 1.325 4.8 0 .75-.125 1.475-.125.725-.375 1.425Zm-8.5-8.5-5.2-5.2 2.65-2.65q.7-.7 1.625-.325.925.375.925 1.375Zm-3 14.3v-7.5l-4.2-4.2h-7.8v6h6.3Z"/><title>Unmute Audio</title></svg>
+        <svg class="icon" id="eidt-mode-icon" fill="#ffffff" Style="display:none;" height="48" width="48"><path d="M9 39h2.2l22.15-22.15-2.2-2.2L9 36.8Zm30.7-24.3-6.4-6.4 2.1-2.1q.85-.85 2.1-.85t2.1.85l2.2 2.2q.85.85.85 2.1t-.85 2.1Zm-2.1 2.1L12.4 42H6v-6.4l25.2-25.2Zm-5.35-1.05-1.1-1.1 2.2 2.2Z"/><title>Edit Mode</title></svg>
+        <svg class="icon" id="double-points-icon" fill="#ffffff" style="display:none;" xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M16.45 43.55q-.4-.4-.45-1-.05-.6.3-1.05L26 28 9.8 26.45q-1.3-.1-1.725-1.35-.425-1.25.575-2.1L29.4 4.4q.45-.45 1.075-.425.625.025 1.075.475.4.4.45 1 .05.6-.3 1.05L22 20l16.2 1.55q1.3.1 1.725 1.35.425 1.25-.575 2.1L18.6 43.6q-.45.45-1.075.425Q16.9 44 16.45 43.55Z"/><title>Double Points</title></svg>
+        <svg class="icon" id="double-time-icon" fill="#ffffff" style="display:none;" height="48" width="48" xmlns="http://www.w3.org/2000/svg"><path d="m12.75 35.95-2.1-2.1 9.9-9.9-9.9-9.9 2.1-2.1 12 12Zm12.65 0-2.1-2.1 9.9-9.9-9.9-9.9 2.1-2.1 12 12Z"/><title>Doouble Time</title></svg>
+        <div class="input-menu" id="input-menu">
+          <div class="input-menu-container" id="imc"></div>
+        </div>
+      </div>
+      <div id="settingsContainer">
+      <div class="settings-menu">
+        <p class="settings-header">Settings Menu</p>
+        <div class="settings-container top">
+          <!--First settings box-->
+          <div class="flex-container">
+            <div class="settings-option">
+              <u title="you will have 12 seconds to view a question">Double Time</u>
+            </div>
+            <div class="toggle-button" style="font-size: 50px;">
+              <ion-icon class="settings-toggle-button-one" name="radio-button-off-outline"></ion-icon>
+            </div>
+          </div>
+        </div>
+        <div class="settings-container full-round">
+          <!--Second settings box-->
+          <div class="flex-container">
+            <div class="settings-option">
+              <u title="click to enable edit mode">Edit Mode</u>
+            </div>
+            <div class="toggle-button">
+              <ion-icon class="settings-toggle-button-two" name="radio-button-off-outline"></ion-icon>
+            </div>
+          </div>
+        </div>
+        <div class="settings-container full-round">
+          <!--Second settings box-->
+          <div class="flex-container">
+            <div class="settings-option">
+              <u title="points are worth twice as much">Double Points</u>
+            </div>
+            <div class="toggle-button">
+              <ion-icon class="settings-toggle-button-three" name="radio-button-off-outline"></ion-icon>
+            </div>
+          </div>
+        </div>
+        <div class="settings-container full-round">
+          <!--Third settings box-->
+          <div class="flex-container">
+            <div class="settings-option">
+              <u>Player Count</u>
+            </div>
+            <div class="toggle-button" style="font-size: 58px">
+              <p style="color: white; cursor: pointer;"><strong id="take_player" title="remove a player">-</strong><b class="player-number-counter" id="player_count"> 3 </b><strong id="add_player" title="add a player">+</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="settings-container bottom">
+          <!--Fourth settings box-->
+          <div class="flex-container">
+            <!-- <div class="settings-option">
+              <u>Change Theme</u>
+            </div>
+            <div class="toggle-button" style="font-size: 58px">
+              <div class="dropdown">
+                <span id="current-theme">Default</span>
+                <div class="theme-list" id="theme-list">
+                  <p class="theme-option" id="light-theme-option">Light</p>
+                  <p class="theme-option" id="default-theme-option">Default</p>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <button class="data-button" id="load" title="click to load game">load save</button>
+          <button class="data-button" id="delete" title="THIS WILL ERASE ALL SAVED GAME DATA">delete save</button>
+          <button class="data-button" id="save" title="click to save game">save game</button>      
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div id="main">
+    <table class="main_table">
+      <tbody>
+        <tr class="headers">
+          <th>Acronyms</th>
+          <th>General IT</th>
+          <th>Windows </th>
+          <th >Linux </th>
+        </tr>
+        <tr id="frfc">
+          <th class="boxes q1 200 200" id="r1c1">$200
+            <div class="questions" id="q1">
+              <!--Question One (q1)-->
+              <p class="question-color">What does <u>RAM</u> stand for?</p>
+              <div class="choices">
+                <p id="q1_correct">Random Access Memory</p>
+                <p>Remote Access Memory</p>
+                <p>Random Aquatic Memory</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q6 200 200" id="r1c2">$200
+            <div class="questions" id="q6">
+              <!--Question six (q6)-->
+              <p class="question-color">How many <u>BITS</u> make 1 <u>BYTE</u>?</p>
+              <div class="choices">
+                <p>4 Bits</p>
+                <p id="q6_correct">8 Bits</p>
+                <p>6 Bits</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q11 200 200" id="r1c3">$200
+            <div class="questions" id="q11">
+              <!--Question eleven (q11)-->
+              <p class="question-color">What is <u>Windows</u>?</p>
+              <div class="choices">
+                <p>A computer</p>
+                <p>Something you see through</p>
+                <p id="q11_correct">Operating System</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q16 200 200" id="r1c4">$200
+            <div class="questions" id="q16">
+              <!--Question sixteen (q16)-->
+              <p>What is <u>Linux</u>?</p>
+              <div class="choices">
+                <p>YouTuber</p>
+                <p id="q16_correct">Operating System</p>
+                <p>Video Game</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+        </tr>
+        <tr id="2r2c">
+          <th class="boxes q2 400 400" id="r2c1">$400
+            <div class="questions" id="q2">
+              <!--Question two (q2)-->
+              <p class="question-color">What does <u>BIOS</u> stand for?</p>
+              <div class="choices">
+                <p id="q2_correct">Basic Input Output System</p>
+                <p>Bold Input Ouput Server</p>
+                <p>Based Inpit Output System</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q7 400 400" id="r2c2">$400
+            <div class="questions" id="q7">
+              <!--Question seven (q7)-->
+              <p class="question-color">What is the <u>Cloud</u>?</p>
+              <div class="choices">
+                <p>Group of Water the Sky</p>
+                <p>A Garbage Service</p>
+                <p id="q7_correct">Storage Over The Internet</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q12 400 400" id="r2c3">$400
+            <div class="questions" id="q12">
+              <!--Question twelve (q12)-->
+              <p class="question-color">What made <u>Windows 8</u> so different<br> from <u>Windows 7</u>?</p>
+              <div class="choices">
+                <p>Faster Boot Time</p>
+                <p id="q12_correct">Both Answers</p>
+                <p>More Secure</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+      
+          </th>
+          <th class="boxes q17 400 400" id="r2c4">$400
+            <div class="questions" id="q17">
+              <!--Question seventeen (q17)-->
+              <p class="question-color">Is <u>Linux</u> open source</p>
+              <div class="choices">
+                <p id="q17_correct">True</p>
+                <p>False</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+        </tr>
+        <tr id="3r3c">
+          <th class="boxes q3 600 600" id="r3c1">$600
+            <div class="questions" id="q3">
+              <!--Question three (q3)-->
+              <p class="question-color">What does <u>USB</u> stand for?</p>
+              <div class="choices">
+                <p>Unique Serial Bus</p>
+                <p>Universal Secure Bus</p>
+                <p id="q3_correct">Universal Serial Bus</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q8 600 600 " id="r3c2">$600
+            <div class="questions" id="q8">
+              <!--Question eight (q8)-->
+              <p class="question-color">A ______ is the registered <br>name of a website</p>
+              <div class="choices">
+                <p>URL</p>
+                <p>Source</p>
+                <p id="q8_correct">Domain</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q13 600 600" id="r3c3">$600
+            <div class="questions" id="q13">
+              <!--Question thirteen (q13)-->
+              <p class="question-color">What is the file extension for <br><u>Microsoft Word Document?</u></p>
+              <div class="choices">
+                <p>.doc</p>
+                <p id="q13_correct">.docx</p>
+                <p>.dot</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q18 600 600" id="r3c4">$600
+            <div class="questions" id="q18">
+              <!--Question eighteen (q18)-->
+              <p class="question-color">Name one version of Linux</p>
+              <div class="choices">
+                <p>Ubuntu</p>
+                <p id="q18_correct">Both</p>
+                <p>Kali Linux</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+        </tr>
+        <tr id="4r4c">
+          <th class="boxes q4 800 800" id="r4c1">$800
+            <div class="questions" id="q4">
+              <!--Question four (q4)-->
+              <p class="question-color">What does <u>NIC</u> stand for?</p>
+              <div class="choices">
+                <p id="q4_correct">Network Interface Card</p>
+                <p>Noise Input Card</p>
+                <p>New Interface Card</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q9 800 800" id="r4c2">$800
+            <div class="questions" id="q9">
+              <!--Question nine (q9)-->
+              <p class="question-color">How does a <u>Fiber-Optic Cable</u><br>transmit signals?</p>
+              <div class="choices">
+                <p>Death Rays</p>
+                <p>Copper Wire</p>
+                <p id="q9_correct">Light Signals</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q14 800 800" id="r4c3">$800
+            <div class="questions" id="q14">
+              <!--Question fourteen (q14)-->
+              <p class="question-color">What is one method to <br>open <u>Task Manager</u>?</p>
+              <div class="choices">
+                <p>WIN + E</p>
+                <p id="q14_correct">CTRL + SHIFT + ESC</p>
+                <p>WIN + TAB</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q19 800 800" id="r4c4">$800
+            <div class="questions" id="q19">
+              <!--Question nineteen (q19)-->
+              <p class="question-color">What command is used<br> to show your IP</p>
+              <div class="choices">
+                <p>ipconfig</p>
+                <p>tree</p>
+                <p id="q19_correct">ifconfig</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+        </tr>
+        <tr id="5r5c">
+          <th class="boxes q5 1000 100" id="r5c1">$1000
+            <div class="questions" id="q5">
+              <!--Question five (q5)-->
+              <p class="question-color">What does <u>NTFS</u> stand for?</p>
+              <div class="choices">
+                <p id="q5_correct">New Technology File System</p>
+                <p>New Technology File Server</p>
+                <p>New Technology Film System</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q10 1000 100" id="r5c2">$1000
+            <div class="questions" id="q10">
+              <!--Question ten (q10)-->
+              <p class="question-color">What type of printer uses <u>fusing</u>?</p>
+              <div class="choices">
+                <p>LED Printer</p>
+                <p id="q10_correct">Laser Printer</p>
+                <p>Inkjet Printer</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q15 1000 1000" id="r5c3">$1000
+            <div class="questions" id="q15">
+              <!--Question fifteen (q15)-->
+              <p class="question-color">What <u>CMD</u> command clears <br>the console?</p>
+              <div class="choices">
+                <p id="q15_correct">CLS</p>
+                <p>Clean</p>
+                <p>Clear</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+          <th class="boxes q20 1000 100" id="r5c4">$1000
+            <div class="questions" id="q20">
+              <!--Question twnety (q20)-->
+              <p class="question-color">Who created <u>Linux</u>?</p>
+              <div class="choices">
+                <p>Bill Gates</p>
+                <p>Linus Sebastian</p>
+                <p id="q20_correct">Linus Torvalds</p>
+              </div>
+              <div class="timer-container">
+                <div class="timer-bar"></div>
+              </div>
+            </div>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+      <div id="dy-table"></div>
+      <table class="player-info-table">
+        <td id="player_names_table">
+          <tr id="player_names">
+            <th class="headers" id="player1_name">Player 1</th>
+            <th class="headers" id="player2_name">Player 2</th>
+            <th class="headers" id="player3_name">Player 3</th>
+          </tr>
+          <tr id="player_score_text">
+            <th class="score_boxes p1b" id="player1_score">0</th>
+            <th class="score_boxes p2b" id="player2_score">0</th>
+            <th class="score_boxes p3b" id="player3_score">0</th>
+          </tr>
+          <tr class="player-score-buttons" id="player_score_buttons" style="text-align: center">
+            <td style="text-align: center">
+              <button class="points-button" id="add_p1">ADD</button>
+              <button class="points-button" id="take_p1">TAKE</button>
+            </td>
+            <td>
+              <button class="points-button" id="add_p2">ADD</button>
+              <button class="points-button" id="take_p2">TAKE</button>
+            </td>
+            <td>
+              <button class="points-button" id="add_p3">ADD</button>
+              <button class="points-button" id="take_p3">TAKE</button>
+            </td>
+          </tr>
+        </td>
+      </table>
+  </div>
+    <script type="module" src="Scripts/createNewPlayers.js"></script>
+    <!-- <script type="module" src="Scripts/game_theme_change.js"></script> -->
+    <script type="module" src="Scripts/game_settings.js"></script>
+    <script type="module" src="Scripts/game_main.js"></script>
+    <script type="module" src="Scripts/game_buttons.js"></script>
+    <script type="module" src="Scripts/custom_context_menu.js"></script>
+    <script type="module" src="Scripts/edit_player_name.js"></script>
+    <script type="module" src="Scripts/game_save.js"></script>
+    <script type="module" src="Scripts/game_variables.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html> 
